@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
+import { useRoute, RouterLink } from 'vue-router'
 
-const menus = ['Home', 'Products', 'Services', 'Project', 'Blog', 'Contact']
+const menus = ['About', 'Landing']
 
 const route = useRoute()
 const isSelected = (menu: string) => {
@@ -19,15 +19,15 @@ const isSelected = (menu: string) => {
           :key="index"
           class="hover:text-wamfa-primary group relative min-w-32 cursor-pointer rounded-e-lg rounded-s-sm px-4 py-2 text-xl text-slate-600 transition-all ease-in-out"
         >
-          <div
+          <RouterLink :to="menu.toLowerCase()">{{ menu }}</RouterLink>
+          <!-- <div
             class="border-black-300 absolute inset-0 w-0 origin-left transform rounded-e-xl rounded-s-sm border-t-8 transition-all duration-300 group-hover:w-full"
             :class="isSelected(menu)"
           ></div>
           <div
             class="absolute inset-0 w-0 origin-left transform rounded-e-xl rounded-s-sm border-t-4 border-blue-300 transition-all duration-300 group-hover:w-full"
             :class="isSelected(menu)"
-          ></div>
-          {{ menu }}
+          ></div> -->
         </li>
       </ul>
     </nav>
